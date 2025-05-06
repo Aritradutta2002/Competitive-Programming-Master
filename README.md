@@ -5,9 +5,9 @@
 [forks-shield]: https://img.shields.io/github/forks/ShahjalalShohag/Competitive-Programming-A-Complete-Guideline.svg?style=for-the-badge
 [forks-url]: https://github.com/ShahjalalShohag/Competitive-Programming-A-Complete-Guideline/network/members
 [stars-shield]: https://img.shields.io/github/stars/ShahjalalShohag/Competitive-Programming-A-Complete-Guideline.svg?style=for-the-badge
-[stars-url]: https://github.com/ShahjalalShohag/Competitive-Programming-A-Complete-Guideline/stargazers
+[stars-url]: https://github.com/Aritradutta2002
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/ShahjalalShohag
+[linkedin-url]: https://www.linkedin.com/in/aritra-dutta-rick20/
 
 ### Table of Contents
 
