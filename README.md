@@ -2,8 +2,7 @@
 [![Forks][forks-shield]][forks-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-[forks-shield]: https://img.shields.io/github/forks/ShahjalalShohag/Competitive-Programming-A-Complete-Guideline.svg?style=for-the-badge
-[forks-url]: https://github.com/ShahjalalShohag/Competitive-Programming-A-Complete-Guideline/network/members
+
 [stars-shield]: https://img.shields.io/github/stars/ShahjalalShohag/Competitive-Programming-A-Complete-Guideline.svg?style=for-the-badge
 [stars-url]: https://github.com/Aritradutta2002
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
