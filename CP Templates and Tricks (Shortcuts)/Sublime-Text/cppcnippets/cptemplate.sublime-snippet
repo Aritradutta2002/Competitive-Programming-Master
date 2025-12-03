@@ -1,49 +1,57 @@
 <snippet>
   <content><![CDATA[
 /*
-*    Author: rishabhxchoudhary
-*    Created: $CURRENT_DATETIME
-*/
+ * Author  : Aritra Dutta
+ * Target  : Codeforces Expert / CSES
+ * Created : $CURRENT_DATETIME
+ */
 #include <bits/stdc++.h>
 using namespace std;
 
-#define int long long int
-#define double long double
-#define endl '\n'
+using ll = long long;
+using pii = pair<int, int>;
+using vi = vector<int>;
+using vll = vector<ll>;
 
-const int MOD = 1000000007;
+constexpr ll MOD = 1e9 + 7;
+constexpr ll INF = 1e18;
+
+#define all(x) (x).begin(), (x).end()
+#define sz(x) (int)(x).size()
+#define pb push_back
+#define fi first
+#define se second
+#define rep(i, a, b) for (int i = (a); i < (b); ++i)
 
 // Common Mistakes:
-// 1. Use sqrtl() instead of sqrt() for long long
-// 2. if a[i] goes to 10^9, you only need to check for primes till sqrt(10^9) i.e. 31623
-// 3. GCD of |x-y|?
-// 4. should pairity of x and y be equal?
-// 5. Huffman Coding? Merging 2 smallest elements?
-// 6. Coordinate Compression? 
-// 7. Min/Max Spanning Tree.
-// 8. Topo sort ? if there is something related to relative ordering.
-// 9. Try calculating it in reverse order?
+// 1. Integer overflow - use ll when needed
+// 2. Array bounds - check 0-indexed vs 1-indexed
+// 3. Edge cases: n=0, n=1, all same values
+// 4. Modular arithmetic - don't forget % MOD
+// 5. Graph: directed vs undirected
+// 6. Binary search: check lo/hi bounds
+// 7. DP: check base cases
+// 8. Sorting: shuffle before sort in Java
 
-void solve(){
+void yes() { cout << "YES\\n"; }
+void no() { cout << "NO\\n"; }
+
+void solve() {
     $0
 }
 
-signed main()
-{
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);cout.tie(0);
-
-    int t=1;
-    cin>>t;
-    while(t--){
-        solve();
-    }
-
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    
+    int t = 1;
+    cin >> t;
+    while (t--) solve();
+    
     return 0;
 }
 ]]></content>
   <tabTrigger>cptemplate</tabTrigger>
-  <description></description>
-  <!-- Optional: Set a scope to limit where the snippet will trigger -->
-  <scope >source.c++</scope >
+  <description>CP Template - Codeforces/CSES</description>
+  <scope>source.c++</scope>
 </snippet>

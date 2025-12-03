@@ -1,386 +1,243 @@
-package RECURSION;
 /*
-*   Author  : Aritra Dutta
-*   Created : Sunday, 02.03.2025  12:18 am
-*/
-import static java.lang.Math.max;
-import static java.lang.Math.min;
-import static java.lang.Math.abs;
-import static java.lang.System.out;
+ * Author  : Aritra Dutta
+ * Target  : Codeforces Expert / CSES
+ * 
+ * ULTIMATE Java Template - BufferedReader + StringTokenizer + PrintWriter
+ * This is the FASTEST Java I/O for competitive programming
+ * 
+ * Key optimizations:
+ * 1. BufferedReader instead of Scanner (10x faster)
+ * 2. StringTokenizer for parsing (faster than split)
+ * 3. PrintWriter with StringBuilder for output
+ * 4. Shuffle before sort to avoid O(n²) worst case
+ */
 import java.io.*;
 import java.util.*;
 
-public class ABC {
+public class JavaTemplate {
+    static BufferedReader br;
+    static StringTokenizer st;
+    static PrintWriter out;
     
+    static final int MOD = 1_000_000_007;
+    static final int MOD2 = 998244353;
+    static final long INF = (long) 1e18;
     static final Random random = new Random();
-    static final int mod = 1_000_000_007;
     
-    public static void main(String[] args) throws Exception{
-        FastScanner fs = new FastScanner();
-        PrintWriter out = new PrintWriter(System.out);
-        int T = fs.nextInt();
-        while (T-- > 0) {
-            int n = fs.nextInt();
-            System.out.println("hello world");
+    public static void main(String[] args) throws IOException {
+        br = new BufferedReader(new InputStreamReader(System.in));
+        out = new PrintWriter(new BufferedOutputStream(System.out));
+        
+        int t = nextInt();
+        while (t-- > 0) {
+            solve();
         }
-
+        
+        out.flush();
         out.close();
     }
-
-
-
-
-
     
-
-/*=================================================================================================================================================
-================================================================================================================================================= */
-
-
-    /* ============================= Graph Algorithms ===================================*/
-
-
-
-    /* ----------- BFS (Recursive) --------------*/
-
-    static void bfsRecursive(int start, List<List<Integer>> adj) {
-        Queue<Integer> q = new ArrayDeque<>();
-        boolean[] visited = new boolean[adj.size()];
-
-        q.add(start);
-        visited[start] = true;
-
-        while (!q.isEmpty()) {
-            int u = q.poll();
-            out.print(u + " "); // Process node u
-
-            for (int v : adj.get(u)) {
-                if (!visited[v]) {
-                    visited[v] = true;
-                    q.add(v);
-                }
-            }
-        }
+    static void solve() throws IOException {
+        int n = nextInt();
+        // Your solution here
+        
     }
-
-    /*------ Optimized BFS ------*/
-
-    static void bfsOptimized(int start, List<List<Integer>> adj) {
-        ArrayDeque<Integer> q = new ArrayDeque<>();
-        BitSet visited = new BitSet(adj.size());
-        q.add(start);
-        visited.set(start);
-
-        while (!q.isEmpty()) {
-            int u = q.poll();
-            // Process node u here (if needed)
-
-            for (int v : adj.get(u)) {
-                if (!visited.get(v)) {
-                    visited.set(v);
-                    q.add(v);
-                }
-            }
-        }
+    
+    // ==================== FAST I/O ====================
+    static String next() throws IOException {
+        while (st == null || !st.hasMoreTokens())
+            st = new StringTokenizer(br.readLine());
+        return st.nextToken();
     }
-
-    /* ----- DFS (Recursive) -------*/
-
-    static void dfsRecursive(int u, List<List<Integer>> adj, boolean[] visited) {
-        visited[u] = true;
-        out.print(u + " "); // Process node u
-
-        for (int v : adj.get(u)) {
-            if (!visited[v]) {
-                dfsRecursive(v, adj, visited);
-            }
-        }
+    
+    static int nextInt() throws IOException {
+        return Integer.parseInt(next());
     }
-
-    /* --------- Optimized DFS (Iterative) no recursion overhead -------*/
-
-    static void dfsOptimized(int start, List<List<Integer>> adj) {
-        ArrayDeque<Integer> stack = new ArrayDeque<>();
-        BitSet visited = new BitSet(adj.size());
-        stack.push(start);
-        visited.set(start);
-
-        while (!stack.isEmpty()) {
-            int u = stack.pop();
-            // Process node u here (if needed)
-
-            for (int v : adj.get(u)) {
-                if (!visited.get(v)) {
-                    visited.set(v);
-                    stack.push(v);
-                }
-            }
-        }
+    
+    static long nextLong() throws IOException {
+        return Long.parseLong(next());
     }
-
-    /* -------- Graph Input Helper ----------- */
-
-    static List<Integer>[] createGraph(int nodes, int edges, FastScanner fs) {
-        List<Integer>[] adj = new ArrayList[nodes];
-        for (int i = 0; i < nodes; i++) adj[i] = new ArrayList<>();
-        for (int i = 0; i < edges; i++) {
-            int u = fs.nextInt() - 1, v = fs.nextInt() - 1;
-            adj[u].add(v);
-            adj[v].add(u); // Remove if directed graph
-        }
-        return adj;
+    
+    static double nextDouble() throws IOException {
+        return Double.parseDouble(next());
     }
-
-    /*------ Dijkstra's Algorithm -----*/
-
-    static int[] dijkstra(int src, List<int[]>[] adj) {
-        int n = adj.length;
+    
+    static String nextLine() throws IOException {
+        return br.readLine();
+    }
+    
+    static int[] nextIntArray(int n) throws IOException {
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) arr[i] = nextInt();
+        return arr;
+    }
+    
+    static long[] nextLongArray(int n) throws IOException {
+        long[] arr = new long[n];
+        for (int i = 0; i < n; i++) arr[i] = nextLong();
+        return arr;
+    }
+    
+    // ==================== OUTPUT HELPERS ====================
+    static void printArray(int[] arr) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
+            if (i > 0) sb.append(' ');
+            sb.append(arr[i]);
+        }
+        out.println(sb);
+    }
+    
+    static void printArray(long[] arr) {
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < arr.length; i++) {
+            if (i > 0) sb.append(' ');
+            sb.append(arr[i]);
+        }
+        out.println(sb);
+    }
+    
+    static void yes() { out.println("YES"); }
+    static void no() { out.println("NO"); }
+    
+    // ==================== MATH UTILITIES ====================
+    static long gcd(long a, long b) {
+        return b == 0 ? a : gcd(b, a % b);
+    }
+    
+    static long lcm(long a, long b) {
+        return a / gcd(a, b) * b;
+    }
+    
+    static long modPow(long x, long y, long m) {
+        long res = 1;
+        x %= m;
+        while (y > 0) {
+            if ((y & 1) == 1) res = res * x % m;
+            x = x * x % m;
+            y >>= 1;
+        }
+        return res;
+    }
+    
+    static long modInv(long x, long m) {
+        return modPow(x, m - 2, m);
+    }
+    
+    static long modAdd(long a, long b, long m) {
+        return ((a % m) + (b % m)) % m;
+    }
+    
+    static long modSub(long a, long b, long m) {
+        return ((a % m) - (b % m) + m) % m;
+    }
+    
+    static long modMul(long a, long b, long m) {
+        return ((a % m) * (b % m)) % m;
+    }
+    
+    // ==================== SORTING (Anti-hack) ====================
+    // IMPORTANT: Always shuffle before sorting to avoid O(n²) worst case
+    static void shuffleSort(int[] arr) {
+        int n = arr.length;
+        for (int i = n - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        Arrays.sort(arr);
+    }
+    
+    static void shuffleSort(long[] arr) {
+        int n = arr.length;
+        for (int i = n - 1; i > 0; i--) {
+            int j = random.nextInt(i + 1);
+            long temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        Arrays.sort(arr);
+    }
+    
+    // ==================== DSU (Union-Find) ====================
+    static class DSU {
+        int[] parent, rank;
+        int components;
+        
+        DSU(int n) {
+            parent = new int[n];
+            rank = new int[n];
+            components = n;
+            for (int i = 0; i < n; i++) parent[i] = i;
+        }
+        
+        int find(int x) {
+            if (parent[x] != x) parent[x] = find(parent[x]);
+            return parent[x];
+        }
+        
+        boolean unite(int x, int y) {
+            x = find(x); y = find(y);
+            if (x == y) return false;
+            if (rank[x] < rank[y]) { int t = x; x = y; y = t; }
+            parent[y] = x;
+            if (rank[x] == rank[y]) rank[x]++;
+            components--;
+            return true;
+        }
+        
+        boolean same(int x, int y) { return find(x) == find(y); }
+    }
+    
+    // ==================== BFS ====================
+    static int[] bfs(int start, List<List<Integer>> adj) {
+        int n = adj.size();
         int[] dist = new int[n];
-        Arrays.fill(dist, Integer.MAX_VALUE);
-        dist[src] = 0;
-
-        PriorityQueue<int[]> pq = new PriorityQueue<>(Comparator.comparingInt(a -> a[1]));
-        pq.add(new int[]{src, 0});
-
-        while (!pq.isEmpty()) {
-            int[] node = pq.poll();
-            int u = node[0], d = node[1];
-            if (d > dist[u]) continue;
-
-            for (int[] edge : adj[u]) {
-                int v = edge[0], weight = edge[1];
-                if (dist[u] + weight < dist[v]) {
-                    dist[v] = dist[u] + weight;
-                    pq.add(new int[]{v, dist[v]});
+        Arrays.fill(dist, -1);
+        
+        ArrayDeque<Integer> q = new ArrayDeque<>();
+        q.add(start);
+        dist[start] = 0;
+        
+        while (!q.isEmpty()) {
+            int u = q.poll();
+            for (int v : adj.get(u)) {
+                if (dist[v] == -1) {
+                    dist[v] = dist[u] + 1;
+                    q.add(v);
                 }
             }
         }
         return dist;
     }
-
-    /* ============================== Math Utilities ======================================= */
-
-    public static boolean isPrime(long n) {
-        if(n < 2) return false;
-        if(n == 2 || n == 3) return true;
-        if(n%2 == 0 || n%3 == 0) return false;
-        long sqrtN = (long)Math.sqrt(n)+1;
-        for(long i = 6L; i <= sqrtN; i += 6) {
-            if(n%(i-1) == 0 || n%(i+1) == 0) return false;
-        }
-        return true;
-    }
-
-    /* ------ Modular Exponentiation (x^y % mod) ------- */
-
-    static long modPow(long x, long y, long mod) {
-        long res = 1;
-        while (y > 0) {
-            if ((y & 1) == 1) res = (res * x) % mod;
-            x = (x * x) % mod;
-            y >>= 1;
-        }
-        return res;
-    }
-
-
-    static void ruffleSort(int[] a) {
-        int n = a.length;// shuffle, then sort
-        for (int i = 0; i < n; i++) {
-            int oi = random.nextInt(n), temp = a[oi];
-            a[oi] = a[i];
-            a[i] = temp;
-        }
-        Arrays.sort(a);
-    }
-
-    public static long gcd(long a, long b) {
-        while (b != 0) {
-            long temp = b;
-            b = a % b;
-            a = temp;
-        }
-        return a;
-    }
-
-    public static void print(int[] arr) {
-        //for debugging only
-        for (int x : arr)
-            out.print(x + " ");
-        out.println();
-    }
-
-    public static long add(long a, long b) {
-        return (a + b) % mod;
-    }
-
-    public static long sub(long a, long b) {
-        return ((a - b) % mod + mod) % mod;
-    }
-
-    static long mul(long a, long b) {
-        return (a * b) % mod;
-    }
-    static long calPow(long base, long exponent) {
-        if (exponent == 0) {
-            return 1;
-        }
-        if (exponent == 1) {
-            return base % mod;
-        }
-        long temp = calPow(base, exponent / 2);
-
-        if (exponent % 2 == 0) {
-            return (temp * temp) % mod;
-        } else {
-            return (((temp * temp) % mod) * base) % mod;
-        }
-    }
-
-
-    public static long exp(long base, long exp) {
-        if (exp == 0)
-            return 1;
-        long half = exp(base, exp / 2);
-        if (exp % 2 == 0)
-            return mul(half, half);
-        return mul(half, mul(half, base));
-    }
-
-    static long[] factorials = new long[2_000_001];
-    static long[] invFactorials = new long[2_000_001];
-
-    public static void precompFacts() {
-        factorials[0] = invFactorials[0] = 1;
-        for (int i = 1; i < factorials.length; i++)
-            factorials[i] = mul(factorials[i - 1], i);
-        invFactorials[factorials.length - 1] = exp(factorials[factorials.length - 1], mod - 2);
-        for (int i = invFactorials.length - 2; i >= 0; i--)
-            invFactorials[i] = mul(invFactorials[i + 1], i + 1);
-    }
-
-    public static long nCk(int n, int k) {
-        return mul(factorials[n], mul(invFactorials[k], invFactorials[n - k]));
-    }
-
-    public static void sort(int[] a) {
-        ArrayList<Integer> l = new ArrayList<>();
-        for (int i : a)
-            l.add(i);
-        Collections.sort(l);
-        for (int i = 0; i < a.length; i++)
-            a[i] = l.get(i);
-    }
-
-    public static class FastScanner {
-        private int BS = 1 << 16;
-        private char NC = (char) 0;
-        private byte[] buf = new byte[BS];
-        private int bId = 0, size = 0;
-        private char c = NC;
-        private double cnt = 1;
-        private BufferedInputStream in;
-
-        public FastScanner() {
-            in = new BufferedInputStream(System.in, BS);
-        }
-
-        public FastScanner(String s) {
-            try {
-                in = new BufferedInputStream(new FileInputStream(new File(s)), BS);
-            } catch (Exception e) {
-                in = new BufferedInputStream(System.in, BS);
-            }
-        }
-
-        private char getChar() {
-            while (bId == size) {
-                try {
-                    size = in.read(buf);
-                } catch (Exception e) {
-                    return NC;
+    
+    // ==================== Dijkstra ====================
+    static long[] dijkstra(int src, List<List<long[]>> adj) {
+        int n = adj.size();
+        long[] dist = new long[n];
+        Arrays.fill(dist, INF);
+        dist[src] = 0;
+        
+        PriorityQueue<long[]> pq = new PriorityQueue<>(Comparator.comparingLong(a -> a[1]));
+        pq.add(new long[]{src, 0});
+        
+        while (!pq.isEmpty()) {
+            long[] node = pq.poll();
+            int u = (int) node[0];
+            long d = node[1];
+            
+            if (d > dist[u]) continue;
+            
+            for (long[] edge : adj.get(u)) {
+                int v = (int) edge[0];
+                long w = edge[1];
+                if (dist[u] + w < dist[v]) {
+                    dist[v] = dist[u] + w;
+                    pq.add(new long[]{v, dist[v]});
                 }
-                if (size == -1) return NC;
-                bId = 0;
-            }
-            return (char) buf[bId++];
-        }
-
-        public int nextInt() {
-            return (int) nextLong();
-        }
-
-        public int[] nextInts(int N) {
-            int[] res = new int[N];
-            for (int i = 0; i < N; i++) {
-                res[i] = (int) nextLong();
-            }
-            return res;
-        }
-
-        public long[] nextLongs(int N) {
-            long[] res = new long[N];
-            for (int i = 0; i < N; i++) {
-                res[i] = nextLong();
-            }
-            return res;
-        }
-
-        public long nextLong() {
-            cnt = 1;
-            boolean neg = false;
-            if (c == NC) c = getChar();
-            for (; (c < '0' || c > '9'); c = getChar()) {
-                if (c == '-') neg = true;
-            }
-            long res = 0;
-            for (; c >= '0' && c <= '9'; c = getChar()) {
-                res = (res << 3) + (res << 1) + c - '0';
-                cnt *= 10;
-            }
-            return neg ? -res : res;
-        }
-
-        public double nextDouble() {
-            double cur = nextLong();
-            return c != '.' ? cur : cur + nextLong() / cnt;
-        }
-
-        public double[] nextDoubles(int N) {
-            double[] res = new double[N];
-            for (int i = 0; i < N; i++) {
-                res[i] = nextDouble();
-            }
-            return res;
-        }
-
-        public String next() {
-            StringBuilder res = new StringBuilder();
-            while (c <= 32) c = getChar();
-            while (c > 32) {
-                res.append(c);
-                c = getChar();
-            }
-            return res.toString();
-        }
-
-        public String nextLine() {
-            StringBuilder res = new StringBuilder();
-            while (c <= 32) c = getChar();
-            while (c != '\n') {
-                res.append(c);
-                c = getChar();
-            }
-            return res.toString();
-        }
-
-        public boolean hasNext() {
-            if (c > 32) return true;
-            while (true) {
-                c = getChar();
-                if (c == NC) return false;
-                else if (c > 32) return true;
             }
         }
+        return dist;
     }
 }
