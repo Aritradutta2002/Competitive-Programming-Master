@@ -4,6 +4,8 @@
  * Platform  : Leetcode Biweekly Contest 175
  * Created : 31.01.2026 19:51
  */
+package Platforms.LeetCode.Biweekly_Contest_175;
+
 import java.io.*;
 import java.util.*;
 
