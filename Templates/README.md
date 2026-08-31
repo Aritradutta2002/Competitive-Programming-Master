@@ -37,15 +37,91 @@ java Solution
 
 ### Java Templates (`templates/java/`)
 
+Templates are organized into subfolders by topic:
+
+#### `base/` — Core I/O + Utilities (START HERE)
+
 | Template | Use Case |
 |----------|----------|
-| `FastTemplate.java` | **Default** - Most problems (BufferedReader + PrintWriter) |
-| `GraphTemplate.java` | BFS, DFS, Dijkstra, DSU |
+| `base/FastIO.java` | **Default** - Core I/O + utilities |
+
+#### `graph/` — Graph Theory
+
+| Template | Use Case |
+|----------|----------|
+| `graph/GraphTraversal.java` | BFS, DFS, Bipartite, Topo Sort |
+| `graph/ShortestPath.java` | Dijkstra, Bellman-Ford, Floyd |
+| `graph/MSTAndDSU.java` | DSU, Kruskal, Prim |
+| `graph/AdvancedGraph.java` | SCC, Bridges, AP, MaxFlow |
+
+#### `number_theory/` — Number Theory & Math
+
+| Template | Use Case |
+|----------|----------|
+| `number_theory/ModArithmetic.java` | Mod ops, ExtGCD, CRT |
+| `number_theory/Combinatorics.java` | nCr, nPr, Catalan, Stirling |
+| `number_theory/PrimesAndSieve.java` | Sieve, SPF, Miller-Rabin, Totient |
+| `number_theory/MatrixAndTransforms.java` | Matrix exp, FFT, NTT, Gaussian |
+
+#### `data_structures/` — Data Structures
+
+| Template | Use Case |
+|----------|----------|
+| `data_structures/SegmentTree.java` | Generic, Lazy, Min/Max SegTree |
+| `data_structures/FenwickTree.java` | BIT 1D, 2D |
+| `data_structures/SparseTableAndSqrt.java` | Sparse Table, Sqrt Decomp |
+
+#### `dp/` — Dynamic Programming
+
+| Template | Use Case |
+|----------|----------|
+| `dp/DPPatterns.java` | Classical, Digit, Bitmask, Optimizations |
+
+#### `strings/` — String Algorithms
+
+| Template | Use Case |
+|----------|----------|
+| `strings/StringMatching.java` | KMP, Z-func, Hashing, Manacher |
+| `strings/StringStructures.java` | Trie, Aho-Corasick, Suffix Array/Automaton |
+
+#### `trees/` — Tree Algorithms
+
+| Template | Use Case |
+|----------|----------|
+| `trees/TreeAlgorithms.java` | LCA, HLD, Centroid, Euler Tour, Tree DP |
+
+#### `geometry/` — Computational Geometry
+
+| Template | Use Case |
+|----------|----------|
+| `geometry/Geometry.java` | Point, Line, Polygon, Convex Hull |
+
+#### `advanced/` — Advanced Techniques
+
+| Template | Use Case |
+|----------|----------|
+| `advanced/AdvancedTechniques.java` | Game Theory, Mo's, Meet in Middle |
+
+#### `utils/` — Utility Classes
+
+| Template | Use Case |
+|----------|----------|
+| `utils/Utilities.java` | Pair, Triple, DSU, Range, Comparators |
+
+#### Legacy Templates (Backward Compatible)
+
+> **Note:** Legacy files are located in the root `java/` folder (not in subfolders).
+
+| Template | Use Case |
+|----------|----------|
+| `FastTemplate.java` | Basic Fast I/O template |
+| `GraphTemplate.java` | Basic graph algorithms |
 | `DPTemplate.java` | Common DP patterns |
 | `MathTemplate.java` | nCr, Modular Arithmetic, Sieve |
 | `SegTreeTemplate.java` | Segment Tree with Lazy Propagation |
 | `BITTemplate.java` | Fenwick Tree |
 | `StringTemplate.java` | KMP, Z-function, Hashing, Trie |
+| `TreeTemplate.java` | LCA, Tree basics |
 
 ---
 
@@ -99,6 +175,29 @@ static void shuffleSort(int[] arr) {
 ios_base::sync_with_stdio(false);
 cin.tie(nullptr);
 ```
+
+---
+
+## Java Template Usage
+
+For detailed Java template documentation, see [`java/README_JAVA.md`](java/README_JAVA.md)
+
+### Quick Reference
+
+| Problem Category | Primary Template | Secondary Template |
+|-----------------|------------------|-------------------|
+| Array/Sorting | `base/FastIO.java` | `data_structures/SegmentTree.java` |
+| Graph | `graph/GraphTraversal.java` | `utils/Utilities.java` |
+| Shortest Path | `graph/ShortestPath.java` | `graph/GraphTraversal.java` |
+| MST / DSU | `graph/MSTAndDSU.java` | `utils/Utilities.java` |
+| Tree | `trees/TreeAlgorithms.java` | `data_structures/SegmentTree.java` |
+| DP | `dp/DPPatterns.java` | `base/FastIO.java` |
+| String | `strings/StringMatching.java` | `strings/StringStructures.java` |
+| Math | `number_theory/ModArithmetic.java` | `number_theory/Combinatorics.java` |
+| Primes / Sieve | `number_theory/PrimesAndSieve.java` | `number_theory/ModArithmetic.java` |
+| Geometry | `geometry/Geometry.java` | `base/FastIO.java` |
+| Range Queries | `data_structures/SegmentTree.java` | `data_structures/FenwickTree.java` |
+| Game Theory | `advanced/AdvancedTechniques.java` | `graph/GraphTraversal.java` |
 
 ---
 
